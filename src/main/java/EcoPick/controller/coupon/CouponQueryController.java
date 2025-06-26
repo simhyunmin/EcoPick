@@ -10,9 +10,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-import EcoPick.domain.member.Member;
 
 import java.util.List;
 
@@ -24,14 +21,13 @@ public class CouponQueryController {
 
     private final CouponQueryServiceImpl couponQueryService;
 
-    @GetMapping("/me/coupons/info")
-    public ResponseEntity<?> getMemberCouponsInfo(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("member") == null) {
-            return ResponseEntity.status(401).body("로그인이 필요합니다.");
+    @GetMapping("/members/{memberId}/coupons/info")
+    public ResponseEntity<?> getMemberCouponsInfo(@PathVariable Long memberId) {
+        try {
+            List<MemberCouponInfoDto> memberCouponsInfo = couponQueryService.getMemberCouponsInfo(memberId);
+            return ResponseEntity.ok(memberCouponsInfo);
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("쿠폰 정보 조회 실패: " + e.getMessage());
         }
-        Member member = (Member) session.getAttribute("member");
-        List<MemberCouponInfoDto> memberCouponsInfo = couponQueryService.getMemberCouponsInfo(member.getId());
-        return ResponseEntity.ok(memberCouponsInfo);
     }
 }

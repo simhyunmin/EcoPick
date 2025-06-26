@@ -12,10 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
-import EcoPick.domain.member.Member;
-
 
 @RestController
 @RequiredArgsConstructor
@@ -37,13 +33,12 @@ public class CompanyController {
         return companyService.getCompanyById(companyId);
     }
 
-    @GetMapping("/me/companies")
-    public ResponseEntity<?> getSubscribedCompanies(HttpServletRequest request) {
-        HttpSession session = request.getSession(false);
-        if (session == null || session.getAttribute("member") == null) {
-            return ResponseEntity.status(401).body("로그인이 필요합니다.");
+    @GetMapping("/members/{memberId}/companies")
+    public ResponseEntity<?> getSubscribedCompanies(@PathVariable Long memberId) {
+        try {
+            return ResponseEntity.ok(connectCompanyQueryService.getCompaniesByMemberId(memberId));
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("구독 기업 조회 실패: " + e.getMessage());
         }
-        Member member = (Member) session.getAttribute("member");
-        return ResponseEntity.ok(connectCompanyQueryService.getCompaniesByMemberId(member.getId()));
     }
 }

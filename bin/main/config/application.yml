@@ -1,0 +1,25 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/ecopick
+    username: ecopick_user
+    password: ecopick!!
+  jpa:
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.PostgreSQLDialect
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+        default_batch_fetch_size: 1000
+
+kakao:
+  client-id: "f3378e881c522e405c95524ff682b6dd"
+  redirect-uri: "http://localhost:8080/login/oauth2/code/kakao"
+  response-type: "code"
+
+logging:
+  level:
+    root: info
