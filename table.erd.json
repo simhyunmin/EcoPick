@@ -4,8 +4,8 @@
   "settings": {
     "width": 2000,
     "height": 2000,
-    "scrollTop": -230,
-    "scrollLeft": -13,
+    "scrollTop": -268,
+    "scrollLeft": -33,
     "zoomLevel": 1,
     "show": 431,
     "database": 16,
@@ -58,14 +58,16 @@
         "columnIds": [
           "oL4ODrwt432ZV8hMUuh4i",
           "p2uAGHlXMfL79PPmOCx9m",
-          "NvZnt9YFpya0TxYD74_Jm"
+          "NvZnt9YFpya0TxYD74_Jm",
+          "_SN6udAkfDO2i7BibeV9v"
         ],
         "seqColumnIds": [
           "oL4ODrwt432ZV8hMUuh4i",
           "p2uAGHlXMfL79PPmOCx9m",
           "NvZnt9YFpya0TxYD74_Jm",
           "oQQ2JVaPmLnqjRMxYgJmc",
-          "KhT-MiExtKIplUx9jqGTe"
+          "KhT-MiExtKIplUx9jqGTe",
+          "_SN6udAkfDO2i7BibeV9v"
         ],
         "ui": {
           "x": 174,
@@ -76,7 +78,7 @@
           "color": ""
         },
         "meta": {
-          "updateAt": 1750920160791,
+          "updateAt": 1750932753550,
           "createAt": 1750913853474
         }
       },
@@ -889,6 +891,26 @@
           "updateAt": 1750924320011,
           "createAt": 1750924307774
         }
+      },
+      "_SN6udAkfDO2i7BibeV9v": {
+        "id": "_SN6udAkfDO2i7BibeV9v",
+        "tableId": "Kokljf-JCWMeW1fLDejBS",
+        "name": "",
+        "comment": "",
+        "dataType": "",
+        "default": "",
+        "options": 0,
+        "ui": {
+          "keys": 0,
+          "widthName": 60,
+          "widthComment": 60,
+          "widthDataType": 60,
+          "widthDefault": 60
+        },
+        "meta": {
+          "updateAt": 1750932753549,
+          "createAt": 1750932753549
+        }
       }
     },
     "relationshipEntities": {
@@ -903,7 +925,7 @@
             "oL4ODrwt432ZV8hMUuh4i"
           ],
           "x": 565,
-          "y": 192,
+          "y": 198,
           "direction": 2
         },
         "end": {
@@ -931,7 +953,7 @@
             "oL4ODrwt432ZV8hMUuh4i"
           ],
           "x": 369.5,
-          "y": 288,
+          "y": 312,
           "direction": 8
         },
         "end": {
@@ -987,7 +1009,7 @@
             "oL4ODrwt432ZV8hMUuh4i"
           ],
           "x": 565,
-          "y": 256,
+          "y": 274,
           "direction": 2
         },
         "end": {
