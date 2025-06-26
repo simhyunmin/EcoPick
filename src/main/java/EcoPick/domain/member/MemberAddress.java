@@ -17,5 +17,7 @@ public class MemberAddress {
     private double position_x;
     private double position_y;
 
-
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 }

@@ -2,6 +2,9 @@ package EcoPick.domain.member;
 
 import jakarta.persistence.*;
 import lombok.*;
+import EcoPick.domain.mapping.MemberCoupon;
+import EcoPick.domain.mapping.ConnectCompany;
+import java.util.List;
 
 @Getter
 @Entity
@@ -16,4 +19,13 @@ public class Member {
     private String member_name;
 
     private int point;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberAddress> addresses;
+
+    @OneToMany(mappedBy = "member")
+    private List<MemberCoupon> memberCoupons;
+
+    @OneToMany(mappedBy = "member")
+    private List<ConnectCompany> connectCompanies;
 }

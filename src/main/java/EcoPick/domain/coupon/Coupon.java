@@ -4,6 +4,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.List;
+import EcoPick.domain.mapping.MemberCoupon;
 
 @Getter
 @Entity
@@ -24,6 +26,8 @@ public class Coupon {
     @Column(nullable = false)
     private LocalDateTime expire_at;
 
+    @OneToMany(mappedBy = "coupon")
+    private List<MemberCoupon> memberCoupons;
 }
 
 
