@@ -18,7 +18,6 @@ public class MemberCoupon {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private LocalDateTime expire_at;
-
     private LocalDateTime used_at;
+
 }
