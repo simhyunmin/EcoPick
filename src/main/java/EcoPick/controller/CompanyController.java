@@ -12,7 +12,7 @@ import java.util.List;
 
 
 @RestController
-@RequestMapping("/api/")
+@RequestMapping("/api")
 public class CompanyController {
 
     private CompanyService companyService;
@@ -28,18 +28,4 @@ public class CompanyController {
     public Company getCompanybyId(@PathVariable(name = "company-id") Long companyId) {
         return companyService.getCompanyById(companyId);
     }
-
-
-
-
-//    @GetMapping("/{energy-type}/getList")
-//    @Operation(summary = "특정 기간의 에너지 데이터 조회")
-//    public List<ElectricityData> getDataList(
-//            @PathVariable(name = "energy-type") EnergyType energyType,
-//            @RequestParam LocalDateTime start,
-//            @RequestParam LocalDateTime end,
-//            @RequestParam String measurement) {
-//        logger.info("Fetching electricity data between: " + start + " and " + end + " for measurement: " + measurement + " and tag: " + energyType.name());
-//        return influxService.readDataList(start, end, fromUrlBuildingNameToEnglish(measurement), energyType);
-//    }
 }
