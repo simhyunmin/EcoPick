@@ -34,6 +34,16 @@ public class MemberService {
     public void deleteMemberById(Long id){
         memberRepository.deleteById(id);
     }
-
-
+    public Member findOrCreateByKakaoId(String kakaoId, java.util.Map<String, Object> attributes) {
+        return memberRepository.findByKakaoId(kakaoId)
+                .orElseGet(() -> {
+                    String name = attributes.getOrDefault("nickname", "카카오사용자").toString();
+                    Member member = Member.builder()
+                            .kakaoId(kakaoId)
+                            .member_name(name)
+                            .point(0)
+                            .build();
+                    return memberRepository.save(member);
+                });
+    }
 }

@@ -28,4 +28,7 @@ public class Member {
 
     @OneToMany(mappedBy = "member")
     private List<ConnectCompany> connectCompanies;
+
+    @Column(unique = true)
+    private String kakaoId;
 }
