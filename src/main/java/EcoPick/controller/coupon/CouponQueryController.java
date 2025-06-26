@@ -13,13 +13,13 @@ import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/coupons")
+@RequestMapping("/api")
 public class CouponQueryController {
 
     private CouponQueryServiceImpl couponQueryService;
 
-    @GetMapping("/info/{memberId}")
-    public ResponseEntity<?> getMemberCouponsInfo(@PathVariable()Long memberId) {
+    @GetMapping("/members/{id}/coupons/info")
+    public ResponseEntity<?> getMemberCouponsInfo(@PathVariable("id")Long memberId) {
         List<MemberCouponInfoDto> memberCouponsInfo = couponQueryService.getMemberCouponsInfo(memberId);
         return ResponseEntity.ok(memberCouponsInfo);
     }
