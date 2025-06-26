@@ -8,9 +8,11 @@
 .mtj.tmp/
 
 # 패키지 파일
+*.jar
 *.war
 *.nar
 *.ear
+*.zip
 *.tar.gz
 *.rar
 
