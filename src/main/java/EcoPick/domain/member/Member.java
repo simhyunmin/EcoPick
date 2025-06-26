@@ -20,6 +20,8 @@ public class Member {
 
     private int point;
 
+    private int count; // 실천행동 누적 횟수
+
     @OneToMany(mappedBy = "member")
     private List<MemberAddress> addresses;
 

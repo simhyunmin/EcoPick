@@ -46,4 +46,23 @@ public class MemberService {
                     return memberRepository.save(member);
                 });
     }
+
+    // count 조회
+    public int getUserCount(Long id){
+        Member member = memberRepository.findById(id).get();
+        return member.getCount();
+    }
+
+    // point 조회
+    public int getUserPoint(Long id){
+        Member member = memberRepository.findById(id).get();
+        return member.getPoint();
+    }
+
+    // 멤버가 소유한 coupon list 조회
+    public List<Coupon> getUserCoupon(Long id){
+        Member member = memberRepository.findById(id).get();
+        return memberCouponRepository.findCouponsByMemberId(member.getId());
+    }
+
 }

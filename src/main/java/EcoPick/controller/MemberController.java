@@ -1,8 +1,10 @@
 package EcoPick.controller;
 
-
 import EcoPick.domain.member.Member;
+import EcoPick.domain.store.Store;
 import EcoPick.service.MemberService;
+import EcoPick.service.StoreService;
+import io.swagger.v3.oas.annotations.Operation;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -14,10 +16,12 @@ import java.util.NoSuchElementException;
 @RequestMapping("/api/members")
 public class MemberController {
     private final MemberService memberService;
+    private final StoreService storeService;
 
 
-    public MemberController(MemberService memberService) {
+    public MemberController(MemberService memberService, StoreService storeService) {
         this.memberService = memberService;
+        this.storeService = storeService;
     }
 
     @GetMapping
@@ -49,4 +53,19 @@ public class MemberController {
             return ResponseEntity.notFound().build();
         }
     }
+
+
+    @GetMapping("/{id}/count")
+    @Operation(summary = "회원별 실천 횟수 정보 조회")
+    public Integer getUserCount(@PathVariable Long id){
+        return memberService.getUserCount(id);
+    }
+
+    @GetMapping("/{id}/points")
+    @Operation(summary = "회원별 누적 포인트 정보 조회")
+    public Integer getUserPoints(@PathVariable Long id){
+        return memberService.getUserPoint(id);
+    }
+
+
 }

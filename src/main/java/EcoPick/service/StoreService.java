@@ -1,12 +1,13 @@
 package EcoPick.service;
 
-import EcoPick.domain.company.store.Store;
+import EcoPick.domain.store.Store;
 import EcoPick.repository.StoreRepository;
 import io.swagger.v3.oas.annotations.servers.Server;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
-@Server
+@Service
 public class StoreService {
 
     private final StoreRepository storeRepository;
