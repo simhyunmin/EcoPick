@@ -1,7 +1,7 @@
 package EcoPick.service;
 
 import EcoPick.domain.member.Member;
-import EcoPick.dto.KakaoUserInfo;
+import EcoPick.domain.member.dto.KakaoUserInfo;
 import EcoPick.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

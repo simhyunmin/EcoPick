@@ -16,8 +16,8 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 @Transactional(readOnly = true)
 public class CouponQueryServiceImpl {
-    private CouponJpaRepository couponJpaRepository;
-    private MemberCouponJpaRepository memberCouponJpaRepository;
+    private final CouponJpaRepository couponJpaRepository;
+    private final MemberCouponJpaRepository memberCouponJpaRepository;
 
     public List<MemberCouponInfoDto> getMemberCouponsInfo(Long memberId) {
         List<MemberCoupon> memberCoupons = memberCouponJpaRepository.findByMemberId(memberId);

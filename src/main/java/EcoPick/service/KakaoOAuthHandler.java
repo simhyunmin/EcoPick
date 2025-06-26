@@ -1,7 +1,7 @@
 package EcoPick.service;
 
-import EcoPick.dto.KakaoTokenResponse;
-import EcoPick.dto.KakaoUserInfo;
+import EcoPick.domain.member.dto.KakaoTokenResponse;
+import EcoPick.domain.member.dto.KakaoUserInfo;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.*;

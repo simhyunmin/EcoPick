@@ -21,7 +21,7 @@ public class Coupon {
     private int price;
 
     @Column(nullable = false)
-    private int description;
+    private String description;
 
     @Column(nullable = false)
     private LocalDateTime expire_at;

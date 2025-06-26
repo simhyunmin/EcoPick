@@ -13,6 +13,6 @@ import java.time.LocalDateTime;
 @AllArgsConstructor
 public class MemberCouponInfoDto {
     private int price;
-    private int description;
+    private String description;
     private LocalDateTime expire_at;
 }

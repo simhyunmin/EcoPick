@@ -1,8 +1,8 @@
 package EcoPick.controller.auth;
 
 import EcoPick.domain.member.Member;
-import EcoPick.dto.KakaoTokenResponse;
-import EcoPick.dto.KakaoUserInfo;
+import EcoPick.domain.member.dto.KakaoTokenResponse;
+import EcoPick.domain.member.dto.KakaoUserInfo;
 import EcoPick.service.KakaoOAuthHandler;
 import EcoPick.service.MemberCommandService;
 import EcoPick.service.MemberQueryService;

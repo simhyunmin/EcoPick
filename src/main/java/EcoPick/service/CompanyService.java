@@ -2,16 +2,16 @@ package EcoPick.service;
 
 import EcoPick.domain.company.Company;
 import EcoPick.repository.CompanyRepository;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
+@RequiredArgsConstructor
 public class CompanyService {
 
     private final CompanyRepository companyRepository;
-
-    public CompanyService(CompanyRepository companyRepository) {
-        this.companyRepository =companyRepository;
-    }
 
     public Company getCompanyById(Long companyId) {
         return companyRepository.findById(companyId).orElse(null);

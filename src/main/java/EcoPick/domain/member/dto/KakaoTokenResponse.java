@@ -1,4 +1,4 @@
-package EcoPick.dto;
+package EcoPick.domain.member.dto;
 
 import lombok.Data;
 

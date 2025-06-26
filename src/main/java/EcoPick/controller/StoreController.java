@@ -1,32 +1,37 @@
 package EcoPick.controller;
 
 
-import EcoPick.domain.store.Store;
+import EcoPick.domain.store.dto.StoreResponseDto;
 import EcoPick.service.StoreService;
 import io.swagger.v3.oas.annotations.Operation;
+import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
+@RequiredArgsConstructor
 @RequestMapping("/api")
 public class StoreController {
 
-    private StoreService storeService;
+    private final StoreService storeService;
 
-    @GetMapping("/store")
+    @GetMapping("/stores")
     @Operation(summary = "전체 친환경 가게 리스트 조회")
-    public List<Store> getStoreList() {
-        return storeService.getAllStores();
+    public List<StoreResponseDto> getStoreList() {
+        return storeService.getAllStores().stream()
+                .map(StoreResponseDto::fromEntity)
+                .collect(Collectors.toList());
     }
 
     @GetMapping("/store/{store_id}")
     @Operation(summary = "각 친환경 가게 정보 조회")
-    public Store getStoreById(@PathVariable("store_id") long storeId) {
-        return storeService.getStoreById(storeId);
+    public StoreResponseDto getStoreById(@PathVariable("store_id") long storeId) {
+        return StoreResponseDto.fromEntity(storeService.getStoreById(storeId));
     }
 
 }
